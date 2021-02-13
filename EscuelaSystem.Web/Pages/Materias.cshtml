@@ -1,0 +1,39 @@
+﻿@page
+@model EscuelaSystem.Web.Pages.MateriasModel
+@{
+}
+
+<h1>Listado de Materias </h1>
+
+<table class="table table-bordered ">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Habilitada</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Materias)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Codigo</td>
+                <td>@item.Descripcion</td>
+                <td>
+                    @if (item.Habilitada)
+                    {
+                        <input type="checkbox" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" checked="checked" />
+                    }
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
