@@ -12,10 +12,11 @@
             <th>Codigo</th>
             <th>Nombre</th>
             <th>Habilitada</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Materias)
+        @foreach (var item in Model.Materias) 
         {
             <tr>
                 <td>@item.id</td>
@@ -24,12 +25,15 @@
                 <td>
                     @if (item.Habilitada)
                     {
-                        <input type="checkbox" checked="checked" />
+                        <p>SI</p>
                     }
                     else
                     {
-                        <input type="checkbox" checked="checked" />
+                        <p>NO</p>
                     }
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-area="" asp-page="/EditarMateria" asp-route-id="@item.id">Editar</a>
                 </td>
             </tr>
 
