@@ -3,15 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using EscuelaSystem.Data.Intefaces;
 
-namespace EscuelaSystem.Data.NewFolder
+namespace EscuelaSystem.Data.Intefaces
 {
     public interface IRepository<T> where T : EntityBase
     {
-        T GetTById(int id);
-        IEnumerable<T> list();
+        T GetById(int id);
+        IEnumerable<T> List();
 
-        IEnumerable<T> list(Expression<Func<T, bool>> predicate);
+        IEnumerable<T> List(Expression<Func<T, bool>> predicate);
         void Insert(T Entity);
         void Update(T Entity);
         void Delete(T Entity);

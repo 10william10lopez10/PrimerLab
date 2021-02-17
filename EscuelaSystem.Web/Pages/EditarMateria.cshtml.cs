@@ -24,8 +24,8 @@ namespace EscuelaSystem.Web.Pages
         public Materia Materia { get; set; }
         public ActionResult OnGet(int id)
         {
-            Materia = _MateriaRopositorys.GetTById(id);
-            if(Materia == null)
+            Materia = _MateriaRopositorys.GetById(id);
+            if (Materia == null)
             {
                 return NotFound();
             }
@@ -33,22 +33,23 @@ namespace EscuelaSystem.Web.Pages
         }
         public ActionResult Onpost(int id)
         {
-            if (ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return Page();
             }
+            
+                var MateriaToUpdate = _MateriaRopositorys.GetById(id);
+                if (MateriaToUpdate == null)
+                    return NotFound();
+                
+                MateriaToUpdate.Codigo = Materia.Codigo;
+                MateriaToUpdate.Descripcion = Materia.Descripcion;
+                MateriaToUpdate.Habilitada = Materia.Habilitada;
 
-            var MateriaToUpdate = _MateriaRopositorys.GetTById(id);
-            if (MateriaToUpdate == null)
-                return NotFound();
+                _MateriaRopositorys.Update(MateriaToUpdate);
 
-            MateriaToUpdate.Codigo = Materia.Codigo;
-            MateriaToUpdate.Descripcion = Materia.Descripcion;
-            MateriaToUpdate.Habilitada = Materia.Habilitada;
-
-            _MateriaRopositorys.Update(MateriaToUpdate);
-
-            return RedirectToPage("./Materias");
-        }
+                return RedirectToPage("./Materias");
+            }
     }
 }
+

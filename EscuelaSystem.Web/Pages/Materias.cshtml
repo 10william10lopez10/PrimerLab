@@ -4,8 +4,10 @@
 }
 
 <h1>Listado de Materias </h1>
-
-<table class="table table-bordered ">
+<a asp-page="/CrearMateria">Crear Materia</a>
+<br />
+<br />
+<table class="table table-dark table-striped ">
     <thead>
         <tr>
             <th>Id</th>
@@ -16,7 +18,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Materias) 
+        
+        @foreach (var item in Model.Materias)
         {
             <tr>
                 <td>@item.id</td>
@@ -34,6 +37,7 @@
                 </td>
                 <td>
                     <a class="btn btn-sm btn-info" asp-area="" asp-page="/EditarMateria" asp-route-id="@item.id">Editar</a>
+                    <a class="btn btn-sm btn-info" asp-area="" asp-page="/EliminarMateria" asp-route-id="@item.id">Eliminar</a>
                 </td>
             </tr>
 

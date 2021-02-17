@@ -23,7 +23,7 @@ namespace EscuelaSystem.Web.Pages
 
         public IActionResult OnGet()
         {
-            Materias = _materiaRepositorys.list();
+            Materias = _materiaRepositorys.List();
             return Page();
         }
     }

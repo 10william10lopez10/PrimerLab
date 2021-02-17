@@ -1,4 +1,4 @@
-﻿using EscuelaSystem.Data.NewFolder;
+﻿using EscuelaSystem.Data.Intefaces;
 using EscuelaSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,17 +18,17 @@ namespace EscuelaSystem.Data
             _dbContext = dbContext;
         }
 
-        public virtual T GetTById(int id)
+        public virtual T GetById(int id)
         {
             return _dbContext.Set<T>().Find(id);
         }
 
-        public virtual IEnumerable<T> list()
+        public virtual IEnumerable<T> List()
         {
            return _dbContext.Set<T>().AsEnumerable();
         }
 
-        public virtual IEnumerable<T> list(Expression<Func<T, bool>> predicate)
+        public virtual IEnumerable<T> List(Expression<Func<T, bool>> predicate)
         {
             return _dbContext.Set<T>()
                 .Where(predicate)

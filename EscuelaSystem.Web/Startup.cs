@@ -1,6 +1,5 @@
 using EscuelaSystem.Data;
 using EscuelaSystem.Data.Intefaces;
-using EscuelaSystem.Data.NewFolder;
 using EscuelaSystem.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
