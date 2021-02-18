@@ -7,6 +7,6 @@ namespace EscuelaSystem.Data.Intefaces
 {
     public interface IAlumnoRepository : IRepository<Alumno>
     {
-        void hVirtual();
+        void DeleteVirtual();
     }
 }

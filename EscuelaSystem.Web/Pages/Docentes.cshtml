@@ -1,0 +1,46 @@
+﻿@page
+@model EscuelaSystem.Web.Pages.Docentes.DocentesModel
+@{
+}
+<h1>Listado de Materias </h1>
+<a asp-page="/ContratarDocente">Contratar Docente</a>
+<br />
+<br />
+<table class="table table-dark table-striped ">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Carnet</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Docentes)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Carnet</td>
+                <td>@item.Nombre</td>
+                <td>
+                    @if (item.Activo)
+                    {
+                        <p>SI</p>
+                    }
+                    else
+                    {
+                        <p>NO</p>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-outline-light" asp-area="" asp-page="/EditarDocente" asp-route-id="@item.id">Editar</a>
+                    <a class="btn btn-outline-light" asp-area="" asp-page="/EliminarDocente" asp-route-id="@item.id">Eliminar</a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

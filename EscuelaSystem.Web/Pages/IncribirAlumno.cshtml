@@ -1,0 +1,24 @@
+﻿@page
+@model EscuelaSystem.Web.Pages.IncribirAlumnoModel
+@{
+}
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Alumno.id"></label>
+        <input type="text" class="form-control" asp-for="Alumno.Carnet" placeholder="Ingrese el carnet del alumno">
+        <span class="text" asp-validation-for="Alumno.Carnet"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Alumno.Nombre"></label>
+        <input type="text" class="form-control" asp-for="Alumno.Nombre" placeholder="Ingrese el nombre del alumno">
+        <span class="text" asp-validation-for="Alumno.Nombre"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Alumno.Virtual"></label>
+        <input type="checkbox" class="form-control" asp-for="Alumno.Virtual">
+        <span class="text" asp-validation-for="Alumno.Virtual"></span>
+    </div>
+    <button type="submit" class="btn btn-dark">Enviar</button>
+    <a asp-page="/Alumnos">REGRESAR ATRAS</a>
+</form>

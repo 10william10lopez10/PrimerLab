@@ -29,6 +29,7 @@ namespace EscuelaSystem.Web
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IMateriaRopositorys, MateriaRopositorys>();
             services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+            services.AddScoped<IDocenteRepositorys, DocenteRepository>();
             services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }

@@ -7,19 +7,20 @@ using System.Text;
 
 namespace EscuelaSystem.Data.Repositories
 {
-    public class AlumnoRepository : Repository<Alumno>, IAlumnoRepository
+    public class DocenteRepository : Repository<Docente>, IDocenteRepositorys
     {
         private readonly ApplicationDbContext _db;
-        public AlumnoRepository(ApplicationDbContext db) : base(db)
+        public DocenteRepository(ApplicationDbContext db) : base(db)
         {
 
         }
-        public void DeleteVirtual()
+        public void DeleteActivo()
         {
-            var Virtual = _db.Alumnos.Where(c => c.Virtual == true).ToList();
-            _db.RemoveRange(Virtual);
+            var Activo = _db.Docentes.Where(c => c.Activo == true).ToList();
+            _db.RemoveRange(Activo);
             _db.SaveChanges();
         }
 
-        }
+    }
 }
+
